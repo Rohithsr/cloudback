@@ -1,0 +1,30 @@
+# render.yaml
+
+services:
+  - name: todo-list-backend
+    env: node
+    startCommand: node index.js
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: "3000"  # Adjust port as needed
+      - key: MYSQL_ADDON_HOST
+        fromDatabase:
+          name: bbhde7knfc2rj4qsfxce-mysql.services.clever-cloud.com
+  # Replace with your Clever Cloud MySQL database name
+          property: hostname
+      - key: MYSQL_ADDON_DB
+        fromDatabase:
+          name: bbhde7knfc2rj4qsfxce
+  # Replace with your Clever Cloud MySQL database name
+          property: name
+      - key: MYSQL_ADDON_USER
+        fromDatabase:
+          name: u5dbrbdazmfsqymm
+  # Replace with your Clever Cloud MySQL database name
+          property: username
+      - key: MYSQL_ADDON_PASSWORD
+        fromDatabase:
+          name: kcqCL8kmDFkEVDrB0sax
+  # Replace with your Clever Cloud MySQL database name
+          property: password
